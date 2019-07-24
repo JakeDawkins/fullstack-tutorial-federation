@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-gateway": "nodemon gateway.js",
-    "start-service-monolith": "nodemon federated-monolith/src/index.js",
+    "start-service-monolith": "npm start --prefix=federated-monolith",
     "start-services": "concurrently \"npm:start-service-*\""
   },
   "keywords": [],
