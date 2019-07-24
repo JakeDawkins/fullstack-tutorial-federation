@@ -2,6 +2,7 @@
 
 const { ApolloServer } = require('apollo-server');
 const isEmail = require('isemail');
+const { buildFederatedSchema } = require('@apollo/federation');
 
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
@@ -37,9 +38,9 @@ const context = async ({ req }) => {
 };
 
 // Set up Apollo Server
+const schema = buildFederatedSchema([{ typeDefs, resolvers }]);
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  schema,
   dataSources,
   context,
   engine: {
