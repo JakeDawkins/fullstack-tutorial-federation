@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require('apollo-server');
 const { buildFederatedSchema } = require('@apollo/federation');
 
 const typeDefs = gql`
-  type Query {
+  extend type Query {
     test: String
   }
 `;

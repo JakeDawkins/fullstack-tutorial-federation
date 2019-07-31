@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-  type Query {
+  extend type Query {
     launches(
       """
       The number of results to show. Must be >= 1. Default = 20
@@ -16,7 +16,7 @@ const typeDefs = gql`
     me: User
   }
 
-  type Mutation {
+  extend type Mutation {
     # if false, signup failed -- check errors
     bookTrips(launchIds: [ID]!): TripUpdateResponse!
 
